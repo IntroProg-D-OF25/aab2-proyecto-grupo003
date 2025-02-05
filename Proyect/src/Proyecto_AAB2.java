@@ -1,18 +1,11 @@
-
 import java.util.Scanner;
-
 public class Proyecto_AAB2 {
-
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
         System.out.print("Ingrese su sueldo mensual: ");
         double sueldoMensual = scanner.nextDouble();
-        
         double[] facturas = new double[6]; 
         String[] categorias = {"Vivienda", "Educacion", "Alimentacion", "Vestimenta", "Salud", "Turismo"};
-        
         for (int i = 0; i < categorias.length; i++) {
             System.out.print("Ingrese las facturas para " + categorias[i] + ": ");
             facturas[i] = scanner.nextDouble();
@@ -25,10 +18,8 @@ public class Proyecto_AAB2 {
         double totalIngresosAnuales = sueldoMensual * 12;
         double totalDeducciones = calcularDeducciones(facturas, limitesDeducciones);
         double impuestoAPagar = calcularImpuesto(totalIngresosAnuales, totalDeducciones);
-       
         generarDeclaracion(totalIngresosAnuales, totalDeducciones, impuestoAPagar);
     }
-
     public static boolean validarDatos(double sueldoMensual, double[] facturas) {
         if (sueldoMensual <= 0) {
             return false; 
@@ -40,7 +31,6 @@ public class Proyecto_AAB2 {
         }
         return true; 
     }
-
     public static double calcularDeducciones(double[] facturas, double[] limitesDeducciones) {
         double totalDeducciones = 0;
         for (int i = 0; i < facturas.length; i++) {
@@ -48,7 +38,6 @@ public class Proyecto_AAB2 {
         }
         return totalDeducciones;
     }
-
     public static double calcularImpuesto(double ingresosAnuales, double totalDeducciones) {
         double baseImponible = ingresosAnuales - totalDeducciones;
  
